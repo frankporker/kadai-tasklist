@@ -9,12 +9,12 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
-default:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  username: tasklist_development
-  password: <%= ENV['TASKLIST_DATABASE_PASSWORD'] %>
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: password
   socket: /var/lib/mysql/mysql.sock
 
 development:
@@ -48,7 +48,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  # <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: tasklist_production
   username: tasklist
   password: <%= ENV['TASKLIST_DATABASE_PASSWORD'] %>
