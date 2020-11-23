@@ -10,6 +10,7 @@
             <ul class="navbar-nav">
                 <% if logged_in? %>
                 <li class="nav-item dropdown">
+                <li class="nav-item"><%= link_to 'タスクの新規追加',new_task_path, class: 'nav-link' %></li>
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                       <li class="dropdown-divider"></li>
@@ -17,7 +18,6 @@
                   </ul>  
                 </li>
                 <% else %>
-                <li class="nav-item"><%= link_to 'タスクの新規追加',new_task_path, class: 'nav-link' %></li>
                 <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
                 <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
                 <% end %>
