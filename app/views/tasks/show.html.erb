@@ -1,18 +1,18 @@
 <h1>Task: <%= @task.id %> のページ</h1>
 
 <table class="table table-bordered">
-    <tr>
-        <th>id</th>
-        <td><%= @task.id %></td>
-    </tr>
-    <tr>
-        <th>status</th>
-        <td><%= @task.status %></td>
-    </tr>
-    <tr>
-        <th>task</th>
-        <td><%= @task.content %></td>
-    </tr>
+  <tr>
+    <th>id</th>
+    <td><%= @task.id %></td>
+  </tr>
+  <tr>
+    <th>status</th>
+    <td><%= @task.status %></td>
+  </tr>
+  <tr>
+    <th>task</th>
+    <td><%= @task.content %></td>
+  </tr>
 </table>
 
 <%= link_to 'このタスク内容を編集する', edit_task_path(@task), class: 'btn btn-light' %>
