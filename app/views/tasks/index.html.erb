@@ -2,26 +2,25 @@
 
 <% if @tasks.any? %>
   <table class="table table-striped">
-      <thead>
-          <tr>
-              <th>id</th>
-              <th>status</th>
-              <th>task</th>
-          </tr>
-      </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
+    <thead>
       <tr>
-      <td><%= link_to task.id, task %></td>
-      <td><%= task.status %></td>
-      <td><%= task.content %></td>
+        <th>id</th>
+        <th>status</th>
+        <th>task</th>
       </tr>
+    </thead>
+    <tbody>
+    
+    <% @tasks.each do |task| %>
+     <tr>
+       <td><%= link_to task.id, task %></td>
+       <td><%= task.status %></td>
+       <td><%= task.content %></td>
+     </tr>
     <% end %>
-  </tbody>
+    </tbody>
   </table>
-  <div>
     <%= paginate @tasks %>
-  </div>
   <% end %>
   
 <%= link_to 'タスクの新規追加', new_task_path, class:"btn btn-primary" %>
